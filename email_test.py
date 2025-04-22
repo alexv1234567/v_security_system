@@ -1,21 +1,20 @@
-# simple_email.py
 import smtplib
 
-# Configuration
+# Config
 SMTP_SERVER = "smtp.gmail.com"
 SMTP_PORT = 587
-EMAIL = "alexv3796@gmail.com"  # Your full Gmail address
-APP_PASSWORD = "wgfn arhj dxek evfg"  # ← Paste your 16-digit app password here
+EMAIL = "alexv3796@gmail.com"  #full Gmail address
+APP_PASSWORD = "wgfn arhj dxek evfg"  #16 digit password key
 TO_EMAIL = "alex.vasilev@gwmail.gwu.edu"
 
 def send_email(subject, body):
     try:
-        # Connect to server
+        #Connect to the server
         with smtplib.SMTP(SMTP_SERVER, SMTP_PORT) as server:
             server.starttls()
-            server.login(EMAIL, APP_PASSWORD.replace(" ", ""))  # Remove spaces from app password
+            server.login(EMAIL, APP_PASSWORD.replace(" ", ""))  #takes out spaces
             
-            # Send email
+            #Send email
             message = f"Subject: {subject}\n\n{body}"
             server.sendmail(EMAIL, TO_EMAIL, message)
         
@@ -25,7 +24,7 @@ def send_email(subject, body):
         print(f"Error sending email: {e}")
         return False
 
-# Example usage
+#Case 1
 send_email(
     subject="Test from Raspberry Pi", 
     body="This is a test email sent from Python!"
