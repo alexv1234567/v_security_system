@@ -8,8 +8,8 @@ import RPi.GPIO as GPIO
 SMTP_SERVER = "smtp.gmail.com"
 SMTP_PORT   = 587
 EMAIL       = "alexv3796@gmail.com"
-APP_PASS    = "wgfn arhj dxek evfg"          # 16‑digit Gmail App PW
-TO_EMAIL    = "alex.vasilev@gwmail.gwu.edu" . #Users Email
+APP_PASS    = "wgfn arhj dxek evfg" # 16 digit Gmail App password Key
+TO_EMAIL    = "alex.vasilev@gwmail.gwu.edu" #Users Email
 
 #drive config
 SERVICE_ACCOUNT_FILE = "/home/pi/service_key.json"
@@ -102,7 +102,7 @@ try:
     while True:
         if GPIO.input(PIR_PIN) and (time.time() - last) >= COOLDOWN:
             last = time.time()
-            print("\n⚠️  Motion!")
+            print("\n  Motion!")
 
             clip = record_video()
             if clip:
