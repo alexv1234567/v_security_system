@@ -8,13 +8,13 @@ from pydrive.auth import GoogleAuth
 from pydrive.drive import GoogleDrive
 import threading
 
-# Configuration
+#Config
 PIR_PIN = 17
 VIDEO_DURATION = 5  # seconds
 RESOLUTION = (1280, 720)
 FPS = 30
 
-# Email configuration
+#Email config
 SMTP_SERVER = "smtp.gmail.com"
 SMTP_PORT = 587
 EMAIL = "alexv3796@gmail.com"
@@ -23,7 +23,7 @@ TO_EMAIL = "alex.vasilev@gwmail.gwu.edu"
 VIDEO_STORAGE_PATH = "/home/pi/security_videos/"
 GOOGLE_DRIVE_FOLDER_ID = "1dcoj3GaLsmP3Js0o2Xum7v9IHXGEvD2C"  # Replace with your folder ID
 
-# Initialize Google Drive
+#Initialize Google Drive
 gauth = GoogleAuth()
 drive = GoogleDrive(gauth)
 
@@ -75,7 +75,7 @@ def record_video(duration, resolution, fps):
 def upload_to_drive(file_path):
     """Upload file to Google Drive and return shareable link"""
     try:
-        # Create Google Drive file instance
+        #Create Google Drive file instance
         gfile = drive.CreateFile({'title': os.path.basename(file_path),
                                 'parents': [{'id': GOOGLE_DRIVE_FOLDER_ID}]})
         
