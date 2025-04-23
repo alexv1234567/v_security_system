@@ -136,8 +136,15 @@ try:
 
             if clip:
                 url = drive_upload(clip)
-                send_email("Home Security: Motion Detected",
-                           f"Motion at {datetime.now():%Y-%m-%d %H:%M:%S}", url)
+                folder = "https://drive.google.com/drive/folders/1XJ55JpXqEhS_dwaen9UrUV7Kiar90UJ7"
+                send_email(
+                        "Home Security: Motion Detected,
+                        f"Motion at {datetime.now():%Y-%m-%d %H:%M:%S}\n\n"
+                        f"Clip link: {url}\n"
+                        f"All clips folder: {folder}"
+                        f"View live feed via: http://172.20.10.4:5000/video_feed"
+                )
+                
             time.sleep(0.5)
         time.sleep(0.1)
 except KeyboardInterrupt:
