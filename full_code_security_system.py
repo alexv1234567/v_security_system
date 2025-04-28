@@ -249,7 +249,7 @@ try:
     while True:
         if GPIO.input(PIR_PIN) and (time.time() - last) >= COOLDOWN:
             last = time.time()
-            print("\nMotion detected!")
+            print("\nMotion detected")
 
             live_feed_active = False
             clip = record_video()
